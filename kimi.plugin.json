@@ -1,0 +1,33 @@
+{
+  "$schema": "https://kimi.com/schemas/kimi.plugin.schema.json",
+  "name": "feature-dev",
+  "version": "1.0.0",
+  "description": "Guided 7-phase feature development workflow with specialized agents for codebase exploration, architecture design, and quality review.",
+  "keywords": [
+    "feature",
+    "development",
+    "workflow",
+    "architecture",
+    "code-review",
+    "code-explorer",
+    "planning",
+    "refactoring",
+    "agents"
+  ],
+  "author": "Anthropic (ported to Kimi Code by mnshkv)",
+  "license": "Apache-2.0 (upstream); port © mnshkv",
+  "skills": "./skills/",
+  "agents": "./agents/",
+  "interface": {
+    "displayName": "Feature Dev",
+    "shortDescription": "Guided feature development: explore, clarify, design, implement, review",
+    "longDescription": "A comprehensive, structured workflow for building new features, ported from Anthropic's feature-dev plugin for Claude Code. Instead of jumping straight into code, it walks you through seven phases: Discovery, Codebase Exploration (parallel code-explorer subagents), Clarifying Questions, Architecture Design (parallel code-architect subagents with competing approaches), Implementation, Quality Review (parallel code-reviewer subagents with confidence-scored findings), and Summary.\n\nUsage: ask the agent to \"run feature-dev\" or describe a feature (e.g. \"add user authentication with OAuth\") and the orchestrator skill guides the session interactively, asking clarifying questions and getting your approval before implementing. The three specialist agents (code-explorer, code-architect, code-reviewer) can also be invoked individually for exploration, design, or review tasks.\n\nCompared to the original Claude Code plugin: subagents are dispatched through Kimi Code's native Agent tool instead of the Task tool, and progress is tracked with the built-in todo list instead of TodoWrite. The workflow, prompts, and agent definitions are otherwise preserved.",
+    "developerName": "Anthropic / mnshkv",
+    "hostKind": "local"
+  },
+  "platforms": [
+    "macos",
+    "windows",
+    "linux"
+  ]
+}
